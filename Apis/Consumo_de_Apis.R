@@ -7,7 +7,7 @@
 library(httr)
 library(jsonlite)
 #declaro la key y el host
-pkey <- "e5ba12f362msh51b39dc37649e55p130be4jsndd0f8d3714c8"
+pkey <- "XXXXXXXXXXXX" #cambiar
 phost <- "superhero-search.p.rapidapi.com"
 
 #endpoint
@@ -24,7 +24,7 @@ list_villanos <- content(GET(http,
 villanos <- fromJSON(list_villanos)
 
 #2) crear un request para obtener el listado de las victimas de minas antipersonal   ---------------------------------------------------------------------------
-#   (Situación Víctimas Minas Antipersonal en Colombia) limitadamente a las
+#   (SituaciÃ³n VÃ­ctimas Minas Antipersonal en Colombia) limitadamente a las
 #   victimas mortales desde el 2010
 library(RSocrata)
 
@@ -38,7 +38,7 @@ url <- "https://www.datos.gov.co/resource/yhxn-eqqw.json"
 estado <- "Muerto"
 fecha<- "2010"
 
-#$where para filtrar datos que contengan un año mayor o igual al especificado
+#$where para filtrar datos que contengan un aÃ±o mayor o igual al especificado
 query <- paste0("estado=", estado, "&$where=", "ano >= ", fecha)
 
 http <- paste0(url, "?", query)
@@ -46,9 +46,9 @@ http <- paste0(url, "?", query)
 #genero el listado de victimas
 victimas <- read.socrata(http, app_token = myapptoken)
 
-#3) crear un request para obtener el listado de medicamentos vencidos (Código     --------------------------------------------------------------------------
-#   único de medicamentos vencidos) limitadamente a los frascos y con paginación
-#   (cada página debe tener 1000 records).
+#3) crear un request para obtener el listado de medicamentos vencidos (CÃ³digo     --------------------------------------------------------------------------
+#   Ãºnico de medicamentos vencidos) limitadamente a los frascos y con paginaciÃ³n
+#   (cada pÃ¡gina debe tener 1000 records).
 library(RSocrata)
 
 #nos autenticamos por medio del token y declaramos la url 
